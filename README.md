@@ -14,4 +14,3 @@ The data used for this tutorial is a [Pythia/Herwig + Delphes Jet Datasets for O
 - numpy
 - matplotlib
 - Jupyter
-- h5py
