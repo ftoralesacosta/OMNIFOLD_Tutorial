@@ -14,3 +14,10 @@ The data used for this tutorial is a [Pythia/Herwig + Delphes Jet Datasets for O
 - numpy
 - matplotlib
 - Jupyter
+
+## Environment
+- `python -m venv OMNIFOLD_venv`
+- `source OMNIFOLD_venv/bin/activate`
+- `pip install -r requirements.txt`
+- `python -m ipykernel install --user --name=OMNIFOLD_venv`
+- `jupyter-lab` # or notebook
