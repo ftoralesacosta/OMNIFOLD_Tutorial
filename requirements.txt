@@ -1,0 +1,6 @@
+numpy==1.22.3
+tensorflow==2.7.0
+matplotlib==3.5.1
+Ipython==8.1.1
+EnergyFlow==1.3.2
+keras==2.7.0
