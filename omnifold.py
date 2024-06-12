@@ -9,11 +9,11 @@ def reweight(events, model, batch_size=10000):
     weights = f / (1. - f)
     return np.squeeze(np.nan_to_num(weights))
 
-# Binary crossentropy for classifying two samples with weights
-# Weights are "hidden" by zipping in y_true (the labels)
-
 
 def weighted_binary_crossentropy(y_true, y_pred):
+    '''Binary crossentropy for classifying two samples with weights'''
+    '''Weights are "hidden" by zipping in y_true (the labels)'''
+
     weights = tf.gather(y_true, [1], axis=1)  # event weights
     y_true = tf.gather(y_true, [0], axis=1)  # actual y_true for loss
 
@@ -69,6 +69,8 @@ def omnifold(theta0_G, theta0_S, theta_unknown_S,
         # zip ("hide") the weights with the labels
         Y_train_1 = np.stack((Y_train_1, w_train_1), axis=1)
         Y_test_1 = np.stack((Y_test_1, w_test_1), axis=1)
+        # why stack 'labels' and weights? Our weighted BCE loss
+        # uses the the weights in 'y_true'
 
         model.compile(loss=weighted_binary_crossentropy,
                       optimizer='Adam',
